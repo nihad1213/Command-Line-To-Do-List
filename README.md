@@ -1,39 +1,90 @@
-1. Plan the Application
-Define functionalities: Add, view, update, delete, mark tasks as complete/incomplete.
-Use Ruby's native JSON library for file persistence.
-2. Set Up the Environment
-Ensure Ruby is installed.
-Familiarize yourself with Ruby's json module for reading and writing JSON files.
-3. Design Classes
-Task Class:
-Attributes: title, due_date, is_complete.
-Methods: Update title, update due date, toggle completion status.
-ToDoList Class:
-Attributes: A collection of tasks (Array of Task objects).
-Methods:
-Add a task.
-Delete a task (by index or title).
-Update task details.
-List all tasks with statuses.
-Save tasks to a JSON file.
-Load tasks from a JSON file.
-4. Set Up File Persistence
-Create methods in the ToDoList class to:
-Serialize tasks into JSON format and write them to a file.
-Read JSON data from a file and deserialize it into Task objects.
-5. Command-Line Interaction
-Create a loop to handle user input.
-Use gets.chomp for input.
-Allow commands like add, view, update, delete, mark_complete, and exit.
-Print clear prompts and feedback for each action.
-6. Testing and Debugging
-Test each feature individually.
-Ensure tasks persist correctly between program runs.
-7. Optional Enhancements
-Add task prioritization.
-Allow sorting tasks by due date or completion status.
-Add colored output for better CLI readability (use gems like colorize).
+# Ruby To-Do List Application
 
+A simple command-line To-Do List application written in Ruby that allows users to manage their tasks with persistent storage using JSON.
 
-For colorful writing
+## Features
+
+* Add new tasks with title and due date
+* View all tasks with their completion status
+* Delete tasks by selection
+* Mark tasks as complete or incomplete
+* Persistent storage using JSON file
+
+## Requirements
+
+### Ruby Installation
+
+#### Windows
+1. Download RubyInstaller from [rubyinstaller.org](https://rubyinstaller.org/)
+2. Run the installer and follow the installation steps
+3. Ensure Ruby is added to your PATH during installation
+
+#### macOS
+```bash
+# Install Homebrew (if not installed)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Ruby
+brew install ruby
+```
+
+#### Linux (Ubuntu/Debian)
+```bash
+sudo apt update
+sudo apt install ruby-full
+```
+
+### Dependencies
+
+Install the required gem for colorful terminal output:
+```bash
 gem install rainbow
+```
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/todo-list.git
+cd todo-list
+```
+
+## Usage
+
+Run the application:
+```bash
+ruby todo_list.rb
+```
+
+### Available Options
+
+1. Add Task - Create a new task with title and due date
+2. View Tasks - Display all tasks and their status
+3. Delete Task - Remove a task by its number
+4. Mark Task - Toggle task completion status
+5. Exit - Close the application
+
+## File Structure
+
+* `todo_list.rb` - Main application script
+* `task.rb` - Task class definition
+* `tasks.json` - Task storage file
+
+## Example Usage
+
+```
+Choose an option:
+1 => Add Task
+2 => View Tasks
+3 => Delete Task
+4 => Mark Task as Complete/Incomplete
+5 => Exit
+Enter your choice: 1
+Enter task title: Buy groceries
+Enter due date (YYYY-MM-DD): 2024-12-25
+Task added!
+```
+
+## Storage
+
+All tasks are automatically saved to `tasks.json` in the application directory, ensuring data persistence between sessions.
